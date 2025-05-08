@@ -1,98 +1,229 @@
-<!-- <!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <title>Gecentreerd Artikel</title>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    article {
-      padding: 20px;
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-  </style>
-</head>
-<body>
-  <article>
-    <h1>Hallo wereld!</h1>
-    <p>Dit artikel staat perfect gecentreerd op de pagina.</p>
-  </article>
-</body>
-</html> 
--->
-
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artikelen Layout</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      max-width: 800px;
-      padding: 20px;
-    }
-
-    article {
-      background-color: #f0f0f0;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: calc(50% - 20px); /* twee per rij, rekening houdend met gap */
-      box-sizing: border-box;
-      text-align: center;
-    }
-
-    @media (max-width: 600px) {
-      article {
-        width: 100%; /* één per rij op smalle schermen */
-      }
-    }
-  </style>
+  <title>Excercise 2</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <section class="container">
-    <article>
+<body class="bg-white">
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <h1 class="navbar-title">My Articles</h1>
+    <button id="menu-btn" class="menu-btn">
+      <div class="icon-bar"></div>
+      <div class="icon-bar"></div>
+      <div class="icon-bar"></div>
+    </button>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="opdracht2.html">Excercise 2</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+  <section class="grid">
+    <!-- Main article -->
+    <article class="main-article">
+      <h2>Hoofdartikel</h2>
+      <p>Dit is het hoofdartikel dat bovenaan staat en twee kolommen breed is.</p>
+    </article>
+
+    <!-- Other articles -->
+    <article class="article">
       <h2>Artikel 1</h2>
       <p>Inhoud van het eerste artikel.</p>
     </article>
-    <article>
+
+    <article class="article">
       <h2>Artikel 2</h2>
       <p>Inhoud van het tweede artikel.</p>
     </article>
-    <article>
+
+    <article class="article">
       <h2>Artikel 3</h2>
       <p>Inhoud van het derde artikel.</p>
     </article>
-    <article>
+
+    <article class="article">
       <h2>Artikel 4</h2>
       <p>Inhoud van het vierde artikel.</p>
     </article>
   </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <h2>Contact Information</h2>
+    <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+    <p>Phone: <a href="tel:+31123456789">+31 12 345 6789</a></p>
+    <p>Address: Article Street 123, 4567 AB Koewacht, Netherlands</p>
+  </div>
+</footer>
+
+<script>
+  const menu = document.getElementById('menu');
+  const btn = document.getElementById('menu-btn');
+  const iconBars = document.querySelectorAll('.icon-bar');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('open');
+    iconBars.forEach(bar => bar.classList.toggle('change'));
+  });
+</script>
+
 </body>
 </html>
+
+<style>
+  /* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #1E3A8A;
+  color: white;
+  padding: 1rem 1.5rem;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.menu-btn {
+  display: none;
+  cursor: pointer;
+}
+
+.icon-bar {
+  width: 24px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+.navbar-links li a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Menu */
+.navbar-links {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.navbar-links.open {
+  max-height: 15rem;
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+}
+
+/* Grid Layout for Main Content */
+.main-content {
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.main-article {
+  grid-column: span 2;
+  background-color: #FDE68A;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.main-article h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.article {
+  background-color: #F3F4F6;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.article h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #E5E7EB;
+  padding: 2rem 1.5rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footer a {
+  color: #3B82F6;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+</style>
