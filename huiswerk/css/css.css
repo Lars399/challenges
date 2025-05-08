@@ -1,0 +1,24 @@
+.icon-bar {
+    transition: all 0.3s ease;
+  }
+  
+  .icon-bar:nth-child(1) {
+    transform-origin: top left;
+  }
+  
+  .icon-bar:nth-child(3) {
+    transform-origin: bottom left;
+  }
+  
+  .icon-bar.change:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  
+  .icon-bar.change:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .icon-bar.change:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+  
