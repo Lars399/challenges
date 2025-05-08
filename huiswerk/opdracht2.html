@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact page</title>
+  <title>Excercise 2</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Koppel het externe CSS-bestand -->
   <link rel="stylesheet" href="css/css.css">
 </head>
-<body class="bg-white">
+<body class="bg-white flex flex-col min-h-screen">
+
 <!-- NAVIGATION -->
 <nav class="bg-blue-800 text-white py-4 px-6">
   <div class="flex justify-between items-center">
@@ -34,18 +34,36 @@
     <li><a href="opdracht2.html" class="block hover:underline">Excercise 2</a></li>
   </ul>
 </nav>
-  
-</body>
-</html>
+
+<!-- MAIN CONTENT (gecentreerd article) -->
+<main class="flex-grow flex justify-center items-center">
+  <article class="bg-gray-100 p-8 rounded shadow-md text-center">
+    <h1 class="text-2xl font-semibold mb-4">Hallo wereld!</h1>
+    <p>Dit artikel staat perfect gecentreerd op de pagina.</p>
+  </article>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-gray-200 text-gray-800 py-6 px-4">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-lg font-semibold mb-2">Contact Information</h2>
+    <p>Email: <a href="mailto:info@example.com" class="text-blue-700 underline">info@example.com</a></p>
+    <p>Phone: <a href="tel:+31123456789" class="text-blue-700 underline">+31 12 345 6789</a></p>
+    <p>Address: Article Street 123, 4567 AB Koewacht, Netherlands</p>
+  </div>
+</footer>
 
 <script>
-    const menu = document.getElementById('menu');
-    const btn = document.getElementById('menu-btn');
-    const iconBars = document.querySelectorAll('.icon-bar');
-    
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('max-h-0');
-      menu.classList.toggle('max-h-40'); // eventueel groter maken bij meer items
-      iconBars.forEach(bar => bar.classList.toggle('change'));
-    });
-  </script>
+  const menu = document.getElementById('menu');
+  const btn = document.getElementById('menu-btn');
+  const iconBars = document.querySelectorAll('.icon-bar');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('max-h-0');
+    menu.classList.toggle('max-h-40');
+    iconBars.forEach(bar => bar.classList.toggle('change'));
+  });
+</script>
+
+</body>
+</html>
